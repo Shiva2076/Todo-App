@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Welcome to Smart Task Manager</title>
+    <style>
+        body { margin: 0; padding: 0; background-color: #f4f6f9; font-family: -apple-system, BlysFont, 'Segoe UI', Arial, sans-serif; }
+        .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+        .header { background: linear-gradient(135deg, #6366f1, #8b5cf6); padding: 48px 40px; text-align: center; }
+        .header h1 { color: #ffffff; margin: 0; font-size: 28px; font-weight: 700; }
+        .header p { color: rgba(255,255,255,0.85); margin: 8px 0 0; font-size: 16px; }
+        .body { padding: 48px 40px; }
+        .body h2 { color: #1e1b4b; font-size: 22px; margin: 0 0 16px; }
+        .body p { color: #4b5563; line-height: 1.7; font-size: 15px; margin: 0 0 24px; }
+        .btn { display: inline-block; background: #6366f1; color: #ffffff; text-decoration: none; padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 15px; }
+        .features { background: #f8f9ff; border-radius: 8px; padding: 24px; margin: 24px 0; }
+        .feature { display: flex; align-items: flex-start; margin-bottom: 12px; }
+        .feature:last-child { margin-bottom: 0; }
+        .feature-icon { font-size: 20px; margin-right: 12px; }
+        .feature-text { color: #374151; font-size: 14px; line-height: 1.5; }
+        .footer { padding: 24px 40px; background: #f9fafb; border-top: 1px solid #e5e7eb; text-align: center; }
+        .footer p { color: #9ca3af; font-size: 13px; margin: 0; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Smart Task Manager</h1>
+        <p>Your productivity, elevated.</p>
+    </div>
+    <div class="body">
+        <h2>Welcome aboard, <span th:text="${name}">User</span>! 🎉</h2>
+        <p>
+            We're thrilled to have you join Smart Task Manager. Your account is ready
+            and you can start organizing your work right away.
+        </p>
+
+        <div class="features">
+            <div class="feature">
+                <span class="feature-icon">✅</span>
+                <span class="feature-text"><strong>Create & assign tasks</strong> with priorities, due dates, and file attachments.</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">📊</span>
+                <span class="feature-text"><strong>Track progress</strong> with real-time status updates and activity logs.</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">⏰</span>
+                <span class="feature-text"><strong>Never miss a deadline</strong> — get email reminders 24h before tasks are due.</span>
+            </div>
+        </div>
+
+        <p>Ready to get started? Click the button below to open your dashboard.</p>
+
+        <a th:href="${frontendUrl}" class="btn">Go to Dashboard &rarr;</a>
+    </div>
+    <div class="footer">
+        <p>You received this email because you signed up for Smart Task Manager. &copy; 2025 Smart Task Manager.</p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+spring:
+  application:
+    name: smart-task-manager
+  data:
+    mongodb:
+      uri: ${MONGODB_URI}
+    redis:
+      url: ${UPSTASH_REDIS_URL}
+      ssl:
+        enabled: ${UPSTASH_REDIS_SSL:false}
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+  mail:
+    host: ${MAIL_HOST}
+    port: ${MAIL_PORT}
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
+
+server:
+  port: 8080
+  error:
+    include-message: always
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: 86400000
+  refresh-expiration: 604800000
+
+cloudinary:
+  cloud-name: ${CLOUDINARY_CLOUD_NAME}
+  api-key: ${CLOUDINARY_API_KEY}
+  api-secret: ${CLOUDINARY_API_SECRET}
+  folder: task-manager/attachments
+
+app:
+  frontend-url: ${FRONTEND_URL:http://localhost:3000}
+  from-email: ${MAIL_USERNAME}
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+
+logging:
+  level:
+    com.taskmanager: DEBUG
